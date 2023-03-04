@@ -1,7 +1,7 @@
 import Sequelize from "sequelize";
 import sequelize from "../config/database";
 
-enum ROLE{admin, moderator, user}
+export enum ROLE{admin, moderator, user}
 const User = sequelize.define("users",{
     id:{
         type:Sequelize.INTEGER,
