@@ -22,6 +22,6 @@ app.use(adminRoute)
   
 // error rotes
 app.use((req:Request, res:Response)=>{
-  res.status(500).json({msg:"Oops!, Route not Found 🤒"})
+  res.status(404).json({msg:"Oops!, Route not Found 🤒"})
 })
 export default app;
