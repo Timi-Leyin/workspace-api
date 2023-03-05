@@ -2,19 +2,19 @@ import dotenv from "dotenv"
 import db from "./src/config/database";
 dotenv.config()
 import app from "./src/app";
-import User from "./src/models/User";
-import uuid from "uuid"
-// console.log(uuid.v1())
+import User, { ROLE } from "./src/models/User";
+import * as uuid from "uuid"
+console.log()
 db.sync().then(result=> console.log("Synced 😎"))
 .catch(err=> console.log(err));
    
     // (async function(){
     //   const user = await  User.create({
-    //         uuid:"123456",
+    //         uuid:uuid.v1(),
     //         name:"Timileyin Oyelekan",
     //         email:"originalTimi@duck.com",
-    //         password:"password"
-    
+    //         password:"password",
+    //         role:ROLE.admin
     //      })
     //      console.log(user.save())
     // })()
