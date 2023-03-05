@@ -1,50 +1,42 @@
-import Sequelize from "sequelize";
+import {DataTypes} from "sequelize";
 import sequelize from "../config/database";
 
 export enum ROLE{admin, moderator, user}
 const User = sequelize.define("users",{
     id:{
-        type:Sequelize.INTEGER,
+        type:DataTypes.INTEGER,
         allowNull:false,
         primaryKey:true,
         unique:true,
         autoIncrement:true
     },
     uuid:{
-        type:Sequelize.STRING,
+        type:DataTypes.STRING,
         allowNull:false
     },
     name:{
-        type:Sequelize.STRING,
+        type:DataTypes.STRING,
         allowNull:false,
     },
     email:{
-        type:Sequelize.STRING,
+        type:DataTypes.STRING,
         allowNull:false
     },
     password:{
-        type:Sequelize.STRING,
+        type:DataTypes.STRING,
         allowNull:false,
     },
     root:{
-        type:Sequelize.BOOLEAN,
+        type:DataTypes.BOOLEAN,
         defaultValue:false
     }, 
     role:{
-        type:Sequelize.INTEGER,
+        type:DataTypes.INTEGER,
         defaultValue:ROLE.user
     },
     restricted:{
-        type:Sequelize.BOOLEAN,
+        type:DataTypes.BOOLEAN,
         defaultValue:false
-    },
-    created_at:{
-        type:Sequelize.DATE,
-        defaultValue: new Date()
-    },
-    updated_at:{
-        type:Sequelize.DATE,
-        defaultValue: new Date()
     }
 })
 
