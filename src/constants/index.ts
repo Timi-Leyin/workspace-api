@@ -1,6 +1,8 @@
 export default {
     routes:{
         index:"/",
+        getPosts:"/posts",
+        getPostById:"/post/:id",
         admin:{
             login:"/admin/login"
         }
