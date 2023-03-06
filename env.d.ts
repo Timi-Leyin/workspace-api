@@ -8,6 +8,7 @@ declare global{
             SQL_PASSWORD:string;
             DEV_PORT:number;
             SQL_HOST:string;
+            JWT_SECRET:string
         }
     }
 }
