@@ -4,6 +4,7 @@ import morgan from "morgan";
 import path from "path";
 import constants from "./constants";
 import adminRoute from "./routes/adminRoutes"
+import postsRoutes from "./routes/postsRoutes"
 // import cors from "cors";
 
 // main code logic
@@ -20,6 +21,7 @@ process.env.NODE_ENV == "development" && app.use(morgan("dev"))
 
 // admin routes
 app.use(adminRoute)
+app.use(postsRoutes)
   
 // error rotes
 app.use((req:Request, res:Response)=>{
