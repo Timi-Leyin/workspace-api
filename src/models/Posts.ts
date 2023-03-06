@@ -52,3 +52,6 @@ const PostModel = db.define("posts", {
     defaultValue: false,
   },
 });
+
+
+export default PostModel
