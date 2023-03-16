@@ -13,6 +13,10 @@ export default {
       getPostById: "/admin/post/:id",
     },
   },
+  config: {
+    limit: "20mb",
+    parameterLimit: 20000,
+  },
   status: {
     // infomation
     continue: 100,
