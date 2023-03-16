@@ -1,10 +1,39 @@
 import express from "express"
 import constants from "../constants"
-import { postLoginAdmin } from "../controllers/adminController"
-import { adminLoginValidator, validationError } from "../middlewares/validator"
+import {
+  createPost,
+  deletePost,
+  login,
+  updatePost,
+} from "../controllers/admin";
+import {
+  adminLoginValidator,
+  createPostValidator,
+  updatePostValidator,
+  validationError,
+} from "../middlewares/validator";
+import verifyToken from "../middlewares/verifyToken";
 const route = express.Router()
 
-route.post(constants.routes.admin.login,  adminLoginValidator, validationError, postLoginAdmin )
 
+/*
+* ADMIN LOGIN ROUTE
+*/
+route.post(constants.routes.admin.login,  adminLoginValidator, validationError, login )
+
+/*
+* ADMIN CREATE POST ROUTE
+*/
+route.post(constants.routes.admin.createPost,  createPostValidator, validationError,verifyToken,  createPost )
+
+/*
+* ADMIN DELETE POST ROUTE
+*/
+route.delete(constants.routes.admin.getPostById,verifyToken,  deletePost )
+
+/*
+* ADMIN UPDATE POST ROUTE
+*/
+route.put(constants.routes.admin.getPostById,verifyToken,updatePostValidator , updatePost )
 
 export default route

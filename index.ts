@@ -1,24 +1,28 @@
 import dotenv from "dotenv"
+dotenv.config();
 import db from "./src/config/database";
-dotenv.config()
 import app from "./src/app";
 import User, { ROLE } from "./src/models/User";
-import * as uuid from "uuid"
+import * as uuid from "uuid";
 import PostModel from "./src/models/Posts";
-console.log()
-db.sync().then(result=> console.log("Synced 😎"))
-.catch(err=> console.log(err));
-   
-    // (async function(){
-    //   const user = await  User.create({
-    //         uuid:uuid.v1(),
-    //         name:"Timileyin Oyelekan",
-    //         email:"originalTimi@duck.com",
-    //         password:"$2b$11$0nSRNBV5Zr9kYJ10B1sRWeUKCshZ3Kt3OxbThqtnl5UN45Woj0TL6",
-    //         role:ROLE.admin
-    //      })
-    //      console.log(user.save())
-    // })()
+
+/*
+DATABSE CONNECTION
+*/
+db.sync({ force: false })
+  .then((result) => console.log("Synced 😎"))
+  .catch((err) => console.log(err));
+
+// (async function () {
+//   const user = await User.create({
+//     uuid: uuid.v1(),
+//     name: "Timileyin Oyelekan",
+//     email: "originalTimi@duck.com",
+//     password: "$2b$11$0nSRNBV5Zr9kYJ10B1sRWeUKCshZ3Kt3OxbThqtnl5UN45Woj0TL6",
+//     role: ROLE.admin,
+//   });
+//   console.log(user.save());
+// })();
 
     //  (async function(){
     //   const user = await  PostModel.create({

@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import db from "../config/database";
-
+import * as uuid from "uuid";
 const PostModel = db.define("posts", {
   id: {
     type: DataTypes.INTEGER,
@@ -10,6 +10,9 @@ const PostModel = db.define("posts", {
     autoIncrement: true,
   },
   user_id: {
+    type: DataTypes.STRING,
+  },
+  author: {
     type: DataTypes.STRING,
   },
   title: {
@@ -29,7 +32,7 @@ const PostModel = db.define("posts", {
   },
   views: {
     type: DataTypes.INTEGER,
-    defaultValue:0
+    defaultValue: 0,
   },
   meta_title: {
     type: DataTypes.STRING,
@@ -45,6 +48,7 @@ const PostModel = db.define("posts", {
   },
   uuid: {
     type: DataTypes.STRING,
+    defaultValue: uuid.v1(),
     allowNull: false,
   },
   archived: {

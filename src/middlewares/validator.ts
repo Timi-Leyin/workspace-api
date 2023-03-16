@@ -7,13 +7,28 @@ const adminLoginValidator = [
   body("password", "Password is Required").isLength({min:1})
 ];
 
-const validationError = (req: Request, res:Response, next:NextFunction) => {
+const createPostValidator = [
+  body("title", "Title must me more than 10 Characters").isLength({ min: 10 }),
+  body("thumbnail", "Thumbnail is Required").isLength({ min: 6 }),
+  body("content", "Content must be greater than 10 Characters").isLength({
+    min: 10,
+  }),
+];
+
+const updatePostValidator = [body("title")];
+
+const validationError = (req: Request, res: Response, next: NextFunction) => {
   const errors = validationResult(req);
   if (errors.array().length > 0) {
     const error = errors.array()[0].msg;
-    return res.status(constants.status.notAcceptable).json({msg:error})
+    return res.status(constants.status.notAcceptable).json({ msg: error });
   }
-  return next()
+  return next();
 };
 
-export { adminLoginValidator, validationError };
+export {
+  adminLoginValidator,
+  validationError,
+  createPostValidator,
+  updatePostValidator,
+};

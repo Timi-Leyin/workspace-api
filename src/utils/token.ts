@@ -5,13 +5,15 @@ interface Payload{
 }
 
 const generate = async (payload:Payload)=>{
-    jwt.sign(process.env.JWT_SECRET)
+    return jwt.sign(payload, process.env.JWT_SECRET as string, {
+      expiresIn: "1h",
+    });
 }
 
 
 
 const verify = async (token:string)=>{
-    
+    return jwt.verify(token, process.env.JWT_SECRET as string);
 }
 
 

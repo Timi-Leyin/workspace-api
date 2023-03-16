@@ -6,11 +6,14 @@
 
 ## Things Needed
 
-- setup typescript []
-- init git []
-- Setup sql || sequelize []
-- LINCENSE []
-- install @types/cors
+- setup typescript [ ]
+- init git [x]
+- Setup sql || sequelize [ ]
+- LICENSE []
+- install @types/cors [x]
+- send otp if its turn on in admin settings (after login) [ ]
+- change storage model []
+- extra security on token []
 
 ## Getting Started
 

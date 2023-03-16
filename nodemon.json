@@ -1,5 +1,5 @@
 {
-    "exec":"ts-node index.ts",
+    "exec":"ts-node-dev index.ts",
     "watch": ["index.ts", "src/"],
     "ext":"js, css, scss, ts, .env, json, tsx",
     "exclude":["node_modules"]

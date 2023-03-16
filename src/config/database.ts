@@ -1,8 +1,14 @@
 import {Sequelize} from "sequelize";
 
-const db = new Sequelize("web-app","root", "password",{
-    dialect:"mysql",
-    host:"localhost"
-})
+const { env } = process;
+const db = new Sequelize(
+  env.SQL_DB as string,
+  env.SQL_USER as string,
+  env.SQL_PASSWORD as string,
+  {
+    host: env.SQL_HOST as string,
+    dialect: "mysql",
+  }
+);
 
 export default db
