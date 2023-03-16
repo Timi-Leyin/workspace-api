@@ -8,7 +8,7 @@ const adminLoginValidator = [
 ];
 
 const createPostValidator = [
-  body("title", "Title must me more than 10 Characters").isLength({ min: 10 }),
+  body("title", "Title must me more than 5 Characters").isLength({ min: 5 }),
   body("thumbnail", "Thumbnail is Required").isLength({ min: 6 }),
   body("content", "Content must be greater than 10 Characters").isLength({
     min: 10,
