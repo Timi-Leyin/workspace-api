@@ -17,8 +17,20 @@
 - Fix Payload too large [x]
 - add ip to whitelist if jwt message is malformed 3 times []
 -  check if post with same title already exists []
+- add new object to user (user_id) []
 ## Getting Started
 
 ```json
        "exec":"ts-node-dev index.ts",
 ```
+
+# ROLES
+ - ADMIN
+    - CREATE DELETE UPDATE GET (admins)
+
+- MODERATOR 
+    - CREATE GET UPDATE DELETE (null)
+
+- USER 
+    -GET (null)
+

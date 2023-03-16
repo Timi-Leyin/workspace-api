@@ -20,6 +20,14 @@ const updatePost = async (req: Request, res: Response) => {
   const postInfo = await PostModel.update(
     {
       title,
+      thumbnail,
+      category,
+      content,
+      meta_title,
+      meta_decription,
+      meta_keywords,
+      meta_robots,
+      archived,
     },
     {
       where: {
