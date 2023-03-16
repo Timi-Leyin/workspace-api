@@ -9,7 +9,7 @@ export default {
     },
     admin: {
       login: "/admin/login",
-      createPost: "/admin/new-post",
+      createPost: "/admin/post",
       getPostById: "/admin/post/:id",
     },
   },
