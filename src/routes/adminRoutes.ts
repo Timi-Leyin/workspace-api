@@ -24,7 +24,13 @@ route.post(constants.routes.admin.login,  adminLoginValidator, validationError, 
 /*
 * ADMIN CREATE POST ROUTE
 */
-route.post(constants.routes.admin.createPost,  createPostValidator, validationError,verifyToken,  createPost )
+route.post(
+  constants.routes.admin.createPost,
+  verifyToken,
+  createPostValidator,
+  validationError,
+  createPost
+);
 
 /*
 * ADMIN DELETE POST ROUTE
