@@ -1,11 +1,9 @@
 import constants from "../../constants/index";
 import { Request, Response } from "express";
-import PostModel from "../../models/User";
+import PostModel from "../../models/Posts";
 import * as uuid from "uuid";
 
 const createPost = async (req: any, res: Response) => {
-  // check if post with smae title already exists
-  // console.log(req.body) //wrong 💣
   const {
     title,
     thumbnail,

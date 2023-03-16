@@ -17,8 +17,14 @@ app.disable("x-powered-by");
 // app.use(express.static(path.join(__dirname, "public")));
 app.use(helmet());
 app.use(cors({ origin: "*" }));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(
+  express.urlencoded({
+    extended: true,
+    limit: constants.config.limit,
+    parameterLimit: constants.config.parameterLimit,
+  })
+);
+app.use(express.json({ limit: constants.config.limit }));
 process.env.NODE_ENV == "development" && app.use(morgan("dev"));
 
 // admin routes

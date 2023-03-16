@@ -14,6 +14,7 @@ const PostModel = db.define("posts", {
   },
   author: {
     type: DataTypes.STRING,
+    defaultValue: "",
   },
   title: {
     type: DataTypes.STRING,
@@ -24,11 +25,11 @@ const PostModel = db.define("posts", {
     defaultValue: "",
   },
   content: {
-    type: DataTypes.TEXT,
+    type: DataTypes.TEXT("long"),
     allowNull: false,
   },
   thumbnail: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT("long"),
   },
   views: {
     type: DataTypes.INTEGER,
