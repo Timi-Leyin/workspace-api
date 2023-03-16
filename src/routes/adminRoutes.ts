@@ -1,6 +1,8 @@
 import express from "express"
-import constants from "../constants"
+import verifyRootAdmin from "../middlewares/verifyRootAdmin";
+import constants from "../constants";
 import {
+  createAdmin,
   createPost,
   deletePost,
   login,
@@ -8,22 +10,27 @@ import {
 } from "../controllers/admin";
 import {
   adminLoginValidator,
+  createAdminValidator,
   createPostValidator,
-  updatePostValidator,
+  // updatePostValidator,
   validationError,
 } from "../middlewares/validator";
 import verifyToken from "../middlewares/verifyToken";
-const route = express.Router()
-
-
-/*
-* ADMIN LOGIN ROUTE
-*/
-route.post(constants.routes.admin.login,  adminLoginValidator, validationError, login )
+const route = express.Router();
 
 /*
-* ADMIN CREATE POST ROUTE
-*/
+ * ADMIN LOGIN ROUTE
+ */
+route.post(
+  constants.routes.admin.login,
+  adminLoginValidator,
+  validationError,
+  login
+);
+
+/*
+ * ADMIN CREATE POST ROUTE
+ */
 route.post(
   constants.routes.admin.createPost,
   verifyToken,
@@ -33,13 +40,32 @@ route.post(
 );
 
 /*
-* ADMIN DELETE POST ROUTE
-*/
-route.delete(constants.routes.admin.getPostById,verifyToken,  deletePost )
+ * ADMIN DELETE POST ROUTE
+ */
+route.delete(constants.routes.admin.getPostById, verifyToken, deletePost);
 
 /*
-* ADMIN UPDATE POST ROUTE
-*/
-route.put(constants.routes.admin.getPostById,verifyToken,updatePostValidator , updatePost )
+ * ADMIN UPDATE POST ROUTE
+ */
+route.put(
+  constants.routes.admin.getPostById,
+  verifyToken,
+  // updatePostValidator,
+  updatePost
+);
+
+/*
+ * ADMIN create admin ROUTE
+ */
+
+route.post(
+  constants.routes.admin.createAdmin,
+  verifyToken,
+  verifyRootAdmin,
+  createAdminValidator,
+  validationError,
+
+  createAdmin
+);
 
 export default route

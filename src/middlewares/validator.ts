@@ -15,7 +15,14 @@ const createPostValidator = [
   }),
 ];
 
-const updatePostValidator = [body("title")];
+// const updatePostValidator = [];
+
+const createAdminValidator = [
+  ...adminLoginValidator,
+  body("name", "NAme cannot be empty")
+    .isLength({ min: 5 })
+    .withMessage("Name Must be more than 5 charcters")
+];
 
 const validationError = (req: Request, res: Response, next: NextFunction) => {
   const errors = validationResult(req);
@@ -30,5 +37,6 @@ export {
   adminLoginValidator,
   validationError,
   createPostValidator,
-  updatePostValidator,
+  createAdminValidator,
+  // updatePostValidator,
 };

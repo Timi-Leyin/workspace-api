@@ -14,6 +14,10 @@ const User = sequelize.define("users", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  user_id: {
+    type: DataTypes.STRING,
+    defaultValue: "",
+  },
   name: {
     type: DataTypes.STRING,
     allowNull: false,

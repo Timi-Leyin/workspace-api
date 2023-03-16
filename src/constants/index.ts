@@ -11,6 +11,7 @@ export default {
       login: "/admin/login",
       createPost: "/admin/post",
       getPostById: "/admin/post/:id",
+      createAdmin: "/admin/admin",
     },
   },
   config: {
