@@ -7,6 +7,14 @@ const adminLoginValidator = [
   body("password", "Password is Required").isLength({min:1})
 ];
 
+export const verifyOtpValidator = [
+  body("email", "Invalid Email").normalizeEmail().isEmail(),
+  body("otp", "OTP is Required")
+    .isLength({ min: 4 })
+    .withMessage("Invalid OTP"),
+];
+
+
 const createPostValidator = [
   body("title", "Title must me more than 5 Characters").isLength({ min: 5 }),
   body("thumbnail", "Thumbnail is Required").isLength({ min: 6 }),
@@ -19,9 +27,9 @@ const createPostValidator = [
 
 const createAdminValidator = [
   ...adminLoginValidator,
-  body("name", "NAme cannot be empty")
+  body("name", "Name cannot be empty")
     .isLength({ min: 5 })
-    .withMessage("Name Must be more than 5 charcters")
+    .withMessage("Name Must be more than 5 charcters"),
 ];
 
 const validationError = (req: Request, res: Response, next: NextFunction) => {

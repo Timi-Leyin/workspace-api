@@ -23,8 +23,11 @@ export default async (req: any, res: Response) => {
     password: await encrypt(password),
     name,
     role,
+    // _auth: true,
     user_id: req.user.uuid,
   });
-
-  console.log("create Account here");
+  const saved_user = await user.save();
+  res.status(constants.status.created).json({
+    msg: "Account Created",
+  });
 };

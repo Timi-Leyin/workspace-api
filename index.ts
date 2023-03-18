@@ -17,9 +17,10 @@ db.sync({ force: false })
 //   const user = await User.create({
 //     uuid: uuid.v1(),
 //     name: "Timileyin Oyelekan",
-//     email: "originalTimi@duck.com",
+//     email: "timileyinoyelekan11@gmail.com",
 //     password: "$2b$11$0nSRNBV5Zr9kYJ10B1sRWeUKCshZ3Kt3OxbThqtnl5UN45Woj0TL6",
 //     role: ROLE.admin,
+//     _auth: true,
 //   });
 //   console.log(user.save());
 // })();

@@ -9,6 +9,8 @@ export default {
     },
     admin: {
       login: "/admin/login",
+      adminInfo: "/admin/me",
+      verifyOtp: "/admin/login/verify",
       createPost: "/admin/post",
       getPostById: "/admin/post/:id",
       createAdmin: "/admin/admin",

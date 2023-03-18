@@ -1,16 +1,19 @@
 import constants from "../../constants";
 import { ROLE } from "../../models/User";
-import { decrypt } from "../../utils/password";
+import { decrypt, encrypt } from "../../utils/password";
 import { generate } from "../../utils/token";
 import { Request, Response } from "express";
 import UserModel from "../../models/User";
-
+import { generate as OTPgenerator } from "otp-generator";
+import OtpModel from "../../models/Otp";
+import { Op } from "sequelize";
+import sendOtp from "../../utils/sendOtp";
 const loginAdmin = async (req: Request, res: Response) => {
   // check if email and isADmin
   const user = await UserModel.findOne({
     where: {
       email: req.body.email,
-      role: ROLE.admin,
+      // role: ROLE.admin,
     },
   });
   if (user) {
@@ -19,12 +22,12 @@ const loginAdmin = async (req: Request, res: Response) => {
     if (!checkPassword)
       return res
         .status(constants.status.notAcceptable)
-        .json({ msg: "Authentication Failed" });
+        .json({ msg: "Credentials not Found" });
 
     // PASSWORD IS CORRECT
     if (user_data._auth) {
       // send otp
-      return;
+      return sendOtp(req, res);
     }
     // generate token
     const token = await generate({

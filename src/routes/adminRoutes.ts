@@ -7,6 +7,7 @@ import {
   deletePost,
   login,
   updatePost,
+  verifyOtp,
 } from "../controllers/admin";
 import {
   adminLoginValidator,
@@ -14,9 +15,16 @@ import {
   createPostValidator,
   // updatePostValidator,
   validationError,
+  verifyOtpValidator,
 } from "../middlewares/validator";
 import verifyToken from "../middlewares/verifyToken";
+import adminInfo from "..//controllers/admin/adminInfo";
 const route = express.Router();
+
+/*
+ * ADMIN INFO ROUTE
+ */
+route.get(constants.routes.admin.adminInfo, verifyToken, adminInfo);
 
 /*
  * ADMIN LOGIN ROUTE
@@ -27,6 +35,18 @@ route.post(
   validationError,
   login
 );
+
+/*
+ * ADMIN VERIFY OTP ROUTE
+ */
+route.post(
+  constants.routes.admin.verifyOtp,
+  verifyOtpValidator,
+  validationError,
+  verifyOtp
+);
+
+
 
 /*
  * ADMIN CREATE POST ROUTE

@@ -1,4 +1,4 @@
-import db from "@/config/database";
+import db from "../config/database";
 import { DataTypes } from "sequelize";
 
 const OtpModel = db.define("otp", {
@@ -17,6 +17,11 @@ const OtpModel = db.define("otp", {
   email: {
     type: DataTypes.STRING,
     allowNull: true,
+  },
+
+  expireAt: {
+    type: DataTypes.BIGINT,
+    defaultValue: Number(Date.now()),
   },
 });
 
