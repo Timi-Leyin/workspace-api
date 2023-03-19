@@ -4,8 +4,6 @@ import saveStorage from "../controllers/fileManager/saveStorage";
 
 const router = Router();
 import multer from "multer";
-import path from "path";
-import { validationError } from "../middlewares/validator";
 import verifyToken from "../middlewares/verifyToken";
 import verifyRootAdmin from "../middlewares/verifyRootAdmin";
 import getStorage from "../controllers/fileManager/getStorage";
@@ -23,8 +21,8 @@ router.post(
 
 router.get(
   constants.routes.file.getFile,
-  // verifyToken,
-  // verifyRootAdmin,
+  verifyToken,
+  verifyRootAdmin,
   getStorage
 );
 export default router;
