@@ -14,7 +14,11 @@ export const verifyOtpValidator = [
     .withMessage("Invalid OTP"),
 ];
 
-
+export const deleteFileValidator = [
+  body("fileId", "Thumbnail is Required")
+    .isLength({ min: 6 })
+    .withMessage("Invalid FileID"),
+];
 const createPostValidator = [
   body("title", "Title must me more than 5 Characters").isLength({ min: 5 }),
   body("thumbnail", "Thumbnail is Required").isLength({ min: 6 }),
