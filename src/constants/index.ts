@@ -4,8 +4,8 @@ export default {
     getPosts: "/posts",
     getPostById: "/post/:id",
     file: {
-      getImages: "/finder",
-      saveImages: "/finder/save",
+      getFile: "/admin/storage",
+      saveFile: "/admin/storage/save",
     },
     admin: {
       login: "/admin/login",

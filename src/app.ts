@@ -7,6 +7,7 @@ import checkIp from "./middlewares/checkIp";
 import error from "./middlewares/error";
 import adminRoute from "./routes/adminRoutes";
 import postsRoutes from "./routes/postsRoutes";
+import fileMangerRoute from "./routes/fileMangerRoute";
 import cors from "cors";
 
 // main code logic
@@ -14,7 +15,7 @@ const app = express();
 
 // middlewares
 app.disable("x-powered-by");
-// app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(helmet());
 app.use(cors({ origin: "*" }));
 app.use(
@@ -31,6 +32,7 @@ process.env.NODE_ENV == "development" && app.use(morgan("dev"));
 app.use(checkIp);
 app.use(adminRoute);
 app.use(postsRoutes);
+app.use(fileMangerRoute);
 
 // error rotes
 app.use(error);

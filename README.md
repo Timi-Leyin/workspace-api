@@ -18,6 +18,7 @@
 - add ip to whitelist if jwt message is malformed 3 times []
 -  check if post with same title already exists []
 - add new object to user (user_id) []
+- filter files send to the server
 ## Getting Started
 
 ```json

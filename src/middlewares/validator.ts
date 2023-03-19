@@ -23,8 +23,6 @@ const createPostValidator = [
   }),
 ];
 
-// const updatePostValidator = [];
-
 const createAdminValidator = [
   ...adminLoginValidator,
   body("name", "Name cannot be empty")

@@ -9,26 +9,36 @@ const StorageModel = db.define("storage", {
     unique: true,
     autoIncrement: true,
   },
-  type: {
+  _id: {
     type: DataTypes.STRING,
   },
-  isImage: {
-    type: DataTypes.BOOLEAN,
-  },
-  thumb: {
+  fileType: {
     type: DataTypes.STRING,
   },
-  changed: {
-    type: DataTypes.DATE,
-    defaultValue: new Date(),
+  fileId: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  folder: {
+    type: DataTypes.STRING,
+    defaultValue: "",
   },
   size: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  url: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  AiTags: {
     type: DataTypes.STRING,
   },
-  file: {
-    type: DataTypes.STRING,
-  },
-  archived: {
+  favourite: {
     type: DataTypes.BOOLEAN,
     defaultValue: false,
   },
