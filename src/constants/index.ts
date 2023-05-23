@@ -1,19 +1,10 @@
 export default {
   routes: {
     index: "/",
-    getPosts: "/posts",
-    getPostById: "/post/:id",
-    file: {
-      getFile: "/admin/storage",
-      saveFile: "/admin/storage/save",
-    },
-    admin: {
-      login: "/admin/login",
-      adminInfo: "/admin/me",
-      verifyOtp: "/admin/login/verify",
-      createPost: "/admin/post",
-      getPostById: "/admin/post/:id",
-      createAdmin: "/admin/admin",
+    profile: "/me",
+    auth: {
+      login: "/login",
+      verifyOtp: "/login/verify",
     },
   },
   config: {

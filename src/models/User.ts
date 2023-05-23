@@ -18,7 +18,11 @@ const User = sequelize.define("users", {
     type: DataTypes.STRING,
     defaultValue: "",
   },
-  name: {
+  firstName: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  lastName: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -43,6 +47,10 @@ const User = sequelize.define("users", {
     defaultValue: false,
   },
   restricted: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
+  verified: {
     type: DataTypes.BOOLEAN,
     defaultValue: false,
   },

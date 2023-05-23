@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, Response } from "express";
 import constants from "../constants";
 import { ROLE } from "../models/User";
 export default (req: any, res: Response, next: NextFunction) => {
