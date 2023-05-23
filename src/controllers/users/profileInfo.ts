@@ -7,7 +7,10 @@ export default (req: any, res: Response) => {
     msg: "Fetched Data",
     data: {
       email: user.email,
-      name: user.name,
+      username: user.username,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      verified: user.verified,
       createdAt: user.createdAt,
       updatedAt: user.updatedAt,
     },
