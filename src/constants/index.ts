@@ -4,6 +4,7 @@ export default {
     profile: "/me",
     auth: {
       login: "/login",
+      signup: "/signup",
       verifyOtp: "/login/verify",
     },
   },
