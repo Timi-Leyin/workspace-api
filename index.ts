@@ -7,7 +7,7 @@ import app from "./src/app";
 DATABSE CONNECTION
 */
 
-db.sync({ force: false })
+db.sync({ force: true })
   .then((result) => console.log("Synced 😎"))
   .catch((err) => console.log(err));
 

@@ -7,6 +7,8 @@ import checkIp from "./middlewares/checkIp";
 import error from "./middlewares/error";
 import authRoute from "./routes/authRoutes";
 import cors from "cors";
+import userRoute from "./routes/userRoute";
+import verifyToken from "./middlewares/verifyToken";
 
 // main code logic
 const app = express();
@@ -28,7 +30,8 @@ process.env.NODE_ENV == "development" && app.use(morgan("dev"));
 
 // admin routes
 app.use(checkIp);
-app.use(authRoute);
+app.use("/auth",authRoute);
+app.use(verifyToken,userRoute);
 
 // error rotes
 app.use(error);

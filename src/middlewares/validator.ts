@@ -4,7 +4,23 @@ import constants from "../constants";
 
 const loginValidator = [
   body("email", "Invalid Email").normalizeEmail().isEmail(),
-  body("password", "Password cannot be Empty").isLength({min:1})
+  body("password", "Password cannot be Empty").isLength({ min: 1 }),
+];
+
+const signupValidator = [
+  body("email", "Invalid Email").normalizeEmail().isEmail(),
+  body("password", "Password cannot be Empty")
+    .isLength({ min: 6 })
+    .withMessage("Password Must Be Greater that 6"),
+  body("firstName", "First Name is Required")
+    .isLength({ min: 3 })
+    .withMessage("First Name Too Short"),
+  body("lastName", "Last Name is Required")
+    .isLength({ min: 3 })
+    .withMessage("Last Name Too Short"),
+  body("username", "UserName is Required")
+    .isLength({ min: 3 })
+    .withMessage("Username Too Short"),
 ];
 
 export const verifyOtpValidator = [
@@ -13,7 +29,6 @@ export const verifyOtpValidator = [
     .isLength({ min: 4 })
     .withMessage("Invalid OTP"),
 ];
-
 
 const validationError = (req: Request, res: Response, next: NextFunction) => {
   const errors = validationResult(req);
@@ -24,7 +39,4 @@ const validationError = (req: Request, res: Response, next: NextFunction) => {
   return next();
 };
 
-export {
-  loginValidator,
-  validationError,
-};
+export { loginValidator, signupValidator, validationError };

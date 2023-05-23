@@ -13,7 +13,7 @@ const login = async (req: Request, res: Response) => {
   });
   if (user) {
     const user_data = user.get();
-    const checkPassword = await decrypt(req.body.password, user_data.password);
+    const checkPassword:any = await decrypt(req.body.password, user_data.password);
     if (!checkPassword)
       return res
         .status(constants.status.notAcceptable)
