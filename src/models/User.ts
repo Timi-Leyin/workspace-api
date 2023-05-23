@@ -1,6 +1,6 @@
 import {DataTypes} from "sequelize";
 import sequelize from "../config/database";
-
+import * as uuid from "uuid"
 export enum ROLE{admin, moderator, user}
 const User = sequelize.define("users", {
   id: {
@@ -10,8 +10,13 @@ const User = sequelize.define("users", {
     unique: true,
     autoIncrement: true,
   },
+  username: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   uuid: {
     type: DataTypes.STRING,
+    defaultValue:uuid.v1(),
     allowNull: false,
   },
   user_id: {

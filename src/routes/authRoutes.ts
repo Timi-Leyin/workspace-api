@@ -3,17 +3,18 @@ import constants from "../constants";
 import { login, verifyOtp } from "../controllers/users";
 import {
   loginValidator,
+  signupValidator,
   validationError,
   verifyOtpValidator,
 } from "../middlewares/validator";
-import verifyToken from "../middlewares/verifyToken";
-import profileInfo from "../controllers/users/profileInfo";
+import signup from "../controllers/auth/signup";
 const route = express.Router();
 
 /*
- *  INFO ROUTE
+ *  SIGNUP ROUTE
  */
-route.get(constants.routes.profile, verifyToken, profileInfo);
+route.post(constants.routes.auth.signup, signupValidator, validationError, signup);
+
 
 /*
  *  LOGIN ROUTE
