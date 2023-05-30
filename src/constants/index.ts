@@ -6,6 +6,8 @@ export default {
       login: "/login",
       signup: "/signup",
       verifyOtp: "/login/verify",
+      checkEmail:"/check-email/:email",
+      checkUsername:"/check-username/:username",
     },
   },
   config: {
